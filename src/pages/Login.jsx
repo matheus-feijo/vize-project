@@ -2,34 +2,43 @@ import React,{ useState,useEffect } from "react";
 import {useNavigate} from "react-router-dom"
 import {api} from "../services/api";
 
-import "../styles/login.css";
-
 import {  makeStyles } from "@material-ui/core";
 import { StyledInput, StyledPassword } from "../components/Inputs";
 import { StyledButton } from "../components/Buttons";
 
 
 
-const useStyles = makeStyles(()=>({
-    content:{
-        backgroundColor:" #DEE3EB",
-        borderRadius:"4px 4px 0px 0px",
+export const useStyles = makeStyles(()=>({
+    divContainerAllContent:{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
     },
-    container:{
+
+    form:{
+        width: '389px',
+        minWidth: '300px',
+        display: 'grid',
+        gap: '20px',
+    },
+
+    formDivInputs:{
         display: "grid",
         gap:"20px"
-        
     },
-    divButtons:{
+
+    formDivButtons:{
         width: "100%",
         display: "grid",
         justifyContent:"center",
-        gap: "49px",
+        gap: "39px",
     },
 
     login:{
         width: "315px",
     },
+
     register:{
         width: "259px",
     }
@@ -113,9 +122,9 @@ export function Login(){
     },[formErrors,isSubmitting]);
 
     return(
-        <div className="login-container-content">
-            <form className="login-form" onSubmit={handleSubmit}>
-                <div className={classes.container}>   
+        <div className={classes.divContainerAllContent}>
+            <form className={classes.form} onSubmit={handleSubmit}>
+                <div className={classes.formDivInputs}>   
 
                     {/**USUARIO */}
                     <StyledInput 
@@ -133,7 +142,7 @@ export function Login(){
                     />
                 </div>
                 
-                <div className={classes.divButtons}>
+                <div className={classes.formDivButtons}>
                 
                     {/**ACESSAR */}
                     <StyledButton

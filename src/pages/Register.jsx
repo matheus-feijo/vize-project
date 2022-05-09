@@ -2,31 +2,10 @@ import {useNavigate} from "react-router-dom"
 import {api} from "../services/api";
 import React,{ useState,useEffect } from "react";
 
-import "../styles/login.css";
-import {  makeStyles } from "@material-ui/core";
 import { StyledInput, StyledPassword } from "../components/Inputs";
 import { StyledButton } from "../components/Buttons";
 
-const useStyles = makeStyles(()=>({
-    content:{
-        backgroundColor:" #DEE3EB",
-        borderRadius:"4px 4px 0px 0px",
-    },
-    container:{
-        display: "grid",
-        gap:"20px"
-        
-    },
-    containerButton:{
-        width: "100%",
-        display: "grid",
-        justifyContent:"center",
-        gap: "49px",
-    },
-    registrar:{
-        width:"259px"
-    }
-}))
+import {useStyles} from "./Login";
 
 export function Register(){
     
@@ -107,9 +86,9 @@ export function Register(){
     },[formErrors,isSubmitting]);
 
     return(
-        <div className="login-container-content">
-            <form className="login-form" onSubmit={handleSubmit}>
-                <div className={classes.container}>   
+        <div className={classes.divContainerAllContent}>
+            <form className={classes.form} onSubmit={handleSubmit}>
+                <div className={classes.formDivInputs}>   
 
                     {/**USUARIO */}
                     <StyledInput 
@@ -139,7 +118,7 @@ export function Register(){
                     
                 </div>
                 
-                <div className={classes.containerButton}>
+                <div className={classes.formDivButtons}>
                     <StyledButton 
                         className={classes.registrar}
                         variant="contained"
