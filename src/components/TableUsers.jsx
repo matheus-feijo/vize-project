@@ -10,13 +10,13 @@ const useStyles = makeStyles(()=>({
         fill: "solid",
         font: "bold 12px Open sans",
         lineHeight:"16px",
-        borderLeft:"1px solid #ffff"
     },
 
     textBody:{
         font: "400 12px Open sans",
         borderLeft:"1px solid #CCE5FF",
-        borderRight:"1px solid #CCE5FF"
+        borderRight:"1px solid #CCE5FF",
+        borderBottom:"0px",
     }
 }))
 
@@ -32,7 +32,13 @@ export function TableUsers(props){
                     <TableHead className={classes.header}>
                         <TableRow>
                             <TableCell className={classes.textHeader} align="center">ID</TableCell>
-                            <TableCell className={classes.textHeader} align="left">Nome</TableCell>
+                            <TableCell 
+                                className={classes.textHeader} 
+                                align="left" 
+                                style={{borderLeft:"1px solid #ffff"}}
+                            >
+                                Nome
+                            </TableCell>
                         </TableRow>
                     </TableHead>
 

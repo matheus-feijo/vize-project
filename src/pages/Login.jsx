@@ -7,7 +7,6 @@ import { StyledInput, StyledPassword } from "../components/Inputs";
 import { StyledButton } from "../components/Buttons";
 
 
-
 export const useStyles = makeStyles(()=>({
     divContainerAllContent:{
         display: 'flex',
@@ -43,7 +42,6 @@ export const useStyles = makeStyles(()=>({
         width: "259px",
     }
 }))
-
 
 
 export function Login(){
@@ -103,7 +101,7 @@ export function Login(){
     }
 
     const handleRegisterNewUser = (e) =>{
-        console.log("test")
+        //console.log("test")
         navigate("cadastro");
     }
 

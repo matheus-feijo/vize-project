@@ -8,15 +8,17 @@ const useStyles = makeStyles(()=>({
     title:{
         lineHeight:"64px",
         font:"400 32px Roboto",
-        letterSpacing:"-0.25px"
-
+        letterSpacing:"-0.25px",
     },
     content:{
-        width: "60%",
+        width: "100%",
     },
-    container:{
+    divContainerAll:{
         display: "grid",
         justifyItems:"center",
+    },
+    divContent:{
+        width: "80%",
     }
 }))
 
@@ -32,7 +34,7 @@ export function Home(){
         try {
             api.defaults.headers.authorization = `Bearer ${id}`;
             await api.get("https://devfront.vize.solutions/api/users?page=1").then((res)=>{
-                console.log(res.data.data);
+                //console.log(res.data.data);
                 setUserList(res.data.data);
             }).catch(err =>{
                 console.log(err);
@@ -48,15 +50,15 @@ export function Home(){
     },[]);
 
     return(
-        <div className={classes.container}>
-            <Typography className={classes.title}>Usuarios:</Typography>
-                <div className={classes.content
-                }>
-                    <TableUsers
-                        users={userList}
-                    />
-                </div>
-                
+        <div className={classes.divContainerAll}>
+            <div className={classes.divContent}>
+                <Typography className={classes.title}>Usuarios:</Typography>
+                    <div className={classes.content}>
+                        <TableUsers
+                            users={userList}
+                        />
+                    </div>
+            </div>  
         </div>
     )
 }
