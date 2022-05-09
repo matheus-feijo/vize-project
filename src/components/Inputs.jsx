@@ -13,14 +13,17 @@ const useStyles = makeStyles(()=>({
         
     },
     text:{
-        paddingLeft: "20px",
-        height: "40px"
+        padding: "4px 0px 4px 20px",
     },
     helperText:{
         background: "#ffff",
     },
-    icon:{
+    ButtonIcon:{
         marginBottom:"8px",
+    },
+
+    icon:{
+        fill:"black",
     }
 }))
 
@@ -35,7 +38,7 @@ export function StyledInput(props){
     return(
         <FormControl className={classes.content} fullWidth>
             <InputLabel htmlFor="filled-adornment" className={classes.text} error={Boolean(formErrors.email)}>{
-                name === "email" ? "usuario":"nome"
+                name === "email" ? "Usuário":"Nome"
             }</InputLabel>
             <Input 
                 className={classes.text}
@@ -82,8 +85,15 @@ export function StyledPassword(props){
                 error={Boolean(formErrors.password)}
                 endAdornment={
                     <InputAdornment position="end">
-                        <IconButton onClick={handleClickShowPassword} className={classes.icon}>
-                            {showPassword ? <Visibility /> : <VisibilityOff />}
+                        <IconButton onClick={handleClickShowPassword} className={classes.ButtonIcon}>
+                            {showPassword ? 
+                                <Visibility 
+                                    className={classes.icon}
+                                /> : 
+                                <VisibilityOff 
+                                    className={classes.icon}
+                                />
+                            }
                         </IconButton>
                     </InputAdornment>
                 }

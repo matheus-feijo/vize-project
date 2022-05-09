@@ -8,6 +8,7 @@ export const StyledButton = styled(Button)({
         padding: "10px 24px",
         background: "#00639C",
         color:"#FFFFFF",
+        textTransform:"none",
         "&:hover":{
             background: "#00639C",
 

@@ -120,7 +120,7 @@ export function Register(){
                 
                 <div className={classes.formDivButtons}>
                     <StyledButton 
-                        className={classes.registrar}
+                        className={classes.register}
                         variant="contained"
                         type="submit"
                     >
