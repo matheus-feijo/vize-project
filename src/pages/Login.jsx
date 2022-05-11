@@ -59,7 +59,6 @@ export function Login(){
 
     /**FUNCTIONS */
     const submit = ()=>{
-        console.log(formValues);
         searchUser(formValues);
     }
     
@@ -69,12 +68,11 @@ export function Login(){
                 if(res.data.data === null){
                     alert("Usuario nao encontrado");
                 }else{
-                    console.log(res.data)
                     navigate(`/home/${res.data.data.Token}`);
                 }
             
             }).catch(erro=>{
-                console.log(erro);
+                throw new Error(erro);
             })
         } catch (error) {
            console.error("erro!!",error) 

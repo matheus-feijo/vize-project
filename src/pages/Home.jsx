@@ -37,10 +37,10 @@ export function Home(){
                 //console.log(res.data.data);
                 setUserList(res.data.data);
             }).catch(err =>{
-                console.log(err);
+                throw new Error(err);
             })
         } catch (error) {
-            console.log("erro!!",error);
+            console.error("erro!!",error);
         }
     }
 

@@ -81,7 +81,6 @@ export function StyledPassword(props){
                 type={showPassword ? "text":"password"}
                 value={formValues.password}
                 onChange={handleChange}
-                margin="dense"
                 error={Boolean(formErrors.password)}
                 endAdornment={
                     <InputAdornment position="end">

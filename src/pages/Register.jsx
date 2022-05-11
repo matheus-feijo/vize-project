@@ -24,14 +24,12 @@ export function Register(){
     /**FUNCTIONS */
 
     const submit = ()=>{
-        console.log(formValues);
         createUser(formValues);
     }
     
     const createUser = async(formValues) =>{
         try {
             await api.post("https://devfront.vize.solutions/api/authaccount/registration",formValues).then((res)=>{
-                console.log(res.data);
                 if(res.data.message === "success"){
                     alert("user registered successfully");
                     navigate("/");
@@ -40,7 +38,7 @@ export function Register(){
                 }
                 
             }).catch(erro=>{
-                console.log(erro);
+                throw new Error(erro);
             })
         } catch (error) {
             console.error("erro!!",error);
@@ -56,7 +54,7 @@ export function Register(){
 
     const validate = (values) =>{
         const errors = {};
-        console.log("erros")
+        
         if(!values.email){
             errors.email = "Campo obrigatorio";
         }
@@ -98,7 +96,6 @@ export function Register(){
                         name="email"
                     
                     />
-                    
                     
                     {/**PASSWORD */}
                     <StyledPassword 
