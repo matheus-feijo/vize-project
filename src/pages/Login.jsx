@@ -64,11 +64,12 @@ export function Login() {
 
     const searchUser = async (formValues) => {
         try {
-            console.log(formValues);
-            await api.post("/user/getUser", {
-                teste: 'oi'
-            }).then(res => {
-                console.log(res);
+            await api.post("https://devfront.vize.solutions/api/authaccount/login", formValues).then(res => {
+                if (res.data.data === null) {
+                    alert("Usuario nao encontrado");
+                } else {
+                    navigate(`/home/${res.data.data.Token}`);
+                }
 
             }).catch(erro => {
                 throw new Error(erro);
@@ -77,20 +78,6 @@ export function Login() {
             console.error("erro!!", error)
         }
     }
-
-    const teste = async () => {
-        try {
-            await api.get("/user/getAll").then(res => {
-                console.log(res);
-
-            }).catch(erro => {
-                throw new Error(erro);
-            })
-        } catch (error) {
-            console.error("erro!!", error)
-        }
-    }
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -129,10 +116,6 @@ export function Login() {
             setIsSubmitting(false);
         }
     }, [formErrors, isSubmitting]);
-
-    useEffect(() => {
-        //teste();
-    }, [])
 
     return (
         <div className={classes.divContainerAllContent}>
